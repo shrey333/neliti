@@ -1,17 +1,34 @@
 <html>
+  <head>
+    <style>
+      table {
+        border-collapse: collapse;
+        width: 100%;
+      }
+      td,
+      th {
+        border: 1px solid #000000;
+        text-align: right;
+        padding: 5px;
+      }
+      tr:nth-child(even) {
+        background-color: #eeeeee;
+      }
+    </style>
+  </head>
   <body>
     <form method="post">
       {% csrf_token %}
       <label>Enter latitude: </label>{{form.latitude}}
       <label>Enter longitude: </label>{{form.longitude}}
-      <button type="Submit">Submit</button>
+      <button type="Submit">Get data</button>
     </form>
     {%if not data %}
     <h1>no data found</h1>
     {% else %}
     <table>
       <tr>
-        <th>Time</th>
+        <th>Date and Time</th>
         <th>
           Temperature (in {{data.json.properties.meta.units.air_temperature}})
         </th>
