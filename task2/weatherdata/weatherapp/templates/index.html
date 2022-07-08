@@ -23,8 +23,8 @@
       <label>Enter longitude: </label>{{form.longitude}}
       <button type="Submit">Get data</button>
     </form>
-    {%if not data %}
-    <h1>no data found</h1>
+    {%if not data or data.status_code != 200 %}
+    <h1>No data found</h1>
     {% else %}
     <table>
       <tr>
